@@ -6,12 +6,13 @@ from dotenv import load_dotenv
 import os
 import gdown
 
-if not os.path.exists("similarity.pkl"):
-    url = "https://drive.google.com/file/d/1p_hjN8xOyBy9XzgOleoCRJ5deN3R8I02/view?usp=sharing"
-    gdown.download(url, "similarity.pkl", quiet=False)
+file_id = "1p_hjN8xOyBy9XzgOleoCRJ5deN3R8I02"
+url = f"https://drive.google.com/uc?id={file_id}"
 
+if os.path.exists("similarity.pkl"):
+    os.remove("similarity.pkl")
 
-load_dotenv()
+gdown.download(url, "similarity.pkl", quiet=False)
 
 API_KEY = os.getenv("TMDB_API_KEY")
 
