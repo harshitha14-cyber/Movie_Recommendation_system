@@ -4,6 +4,11 @@ import pandas as pd
 import requests
 from dotenv import load_dotenv
 import os
+import gdown
+
+if not os.path.exists("similarity.pkl"):
+    url = "https://drive.google.com/file/d/1p_hjN8xOyBy9XzgOleoCRJ5deN3R8I02/view?usp=sharing"
+    gdown.download(url, "similarity.pkl", quiet=False)
 
 
 load_dotenv()
